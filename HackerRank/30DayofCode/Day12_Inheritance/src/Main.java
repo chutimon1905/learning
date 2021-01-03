@@ -43,7 +43,9 @@ class Student extends Person{
      */
     // Write your method here
     Character calculate(){
-        double avg = Arrays.stream(testScores).average().getAsDouble();
+        double avg = 0;
+        if (Arrays.stream(testScores).average().isPresent()) 
+            avg = Arrays.stream(testScores).average().getAsDouble();
         if (avg >= 90 && avg <= 100)
             return 'O';
         else if (avg >= 80 && avg < 90)
